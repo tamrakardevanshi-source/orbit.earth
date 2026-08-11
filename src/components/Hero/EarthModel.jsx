@@ -1,12 +1,15 @@
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useGLTF } from '@react-three/drei'
-import { useRef } from 'react'
-import { OrbitControls } from '@react-three/drei'
+import { useGLTF, OrbitControls } from '@react-three/drei'
+import { useRef, useMemo } from 'react'
 import './EarthModel.css'
 
 function Earth() {
   const earthRef = useRef()
   const { scene } = useGLTF('/earth.glb')
+
+  const clonedScene = useMemo(() => {
+    return scene.clone(true)
+  }, [scene])
 
   useFrame(() => {
     if (earthRef.current) {
@@ -17,7 +20,7 @@ function Earth() {
   return (
     <primitive
       ref={earthRef}
-      object={scene}
+      object={clonedScene}
       scale={1}
     />
   )
@@ -31,7 +34,8 @@ function EarthModel() {
         <directionalLight position={[5, 3, 5]} intensity={2} />
 
         <Earth />
-           <OrbitControls
+
+        <OrbitControls
           enableZoom={false}
           enablePan={false}
           enableDamping

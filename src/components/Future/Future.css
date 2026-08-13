@@ -15,7 +15,7 @@
 
 .future-content {
   position: relative;
-  z-index: 2;
+  z-index: 5;
 
   max-width: 760px;
 }
@@ -83,43 +83,280 @@
   background: #dff6ff;
 }
 
-.future-earth {
+/* FUTURE VISUAL */
+
+.future-visual {
   position: absolute;
 
   right: 7%;
   top: 50%;
 
-  width: 400px;
-  height: 400px;
+  width: 480px;
+  height: 480px;
 
   transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   z-index: 1;
 }
 
-.future-earth .earth-canvas {
-  width: 400px;
-  height: 400px;
-}
+/* Orbital paths */
 
-.future-ring {
+.future-orbit {
   position: absolute;
 
-  width: 360px;
-  height: 360px;
-
-  border: 1px solid rgba(110, 207, 246, 0.15);
+  border: 1px solid rgba(110, 207, 246, 0.14);
   border-radius: 50%;
 
   box-shadow:
-    0 0 80px rgba(50, 180, 255, 0.08),
-    inset 0 0 60px rgba(50, 180, 255, 0.04);
+    0 0 60px rgba(50, 180, 255, 0.04),
+    inset 0 0 50px rgba(50, 180, 255, 0.025);
 
-  animation: futurePulse 5s ease-in-out infinite;
+  pointer-events: none;
 }
 
+.future-orbit-one {
+  width: 340px;
+  height: 340px;
 
+  transform: rotate(-18deg);
 
+  animation: futureOrbitOne 12s ease-in-out infinite;
+}
+
+.future-orbit-two {
+  width: 270px;
+  height: 390px;
+
+  transform: rotate(48deg);
+
+  border-color: rgba(139, 220, 255, 0.09);
+
+  animation: futureOrbitTwo 15s ease-in-out infinite;
+}
+
+.future-orbit-three {
+  width: 390px;
+  height: 230px;
+
+  transform: rotate(-35deg);
+
+  border-color: rgba(110, 207, 246, 0.07);
+
+  animation: futureOrbitThree 18s ease-in-out infinite;
+}
+
+/* Central future point */
+
+.future-core {
+  position: relative;
+
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(139, 220, 255, 0.55),
+      rgba(50, 120, 170, 0.18) 45%,
+      rgba(5, 7, 13, 0.1) 75%
+    );
+
+  box-shadow:
+    0 0 35px rgba(50, 180, 255, 0.18),
+    0 0 100px rgba(50, 180, 255, 0.08);
+
+  animation: futureCorePulse 4s ease-in-out infinite;
+}
+
+/* Timeline markers */
+
+.future-marker {
+  position: absolute;
+
+  padding: 6px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  background: rgba(5, 7, 13, 0.7);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+
+  white-space: nowrap;
+  cursor: default;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.future-marker:hover {
+  color: #8bdcff;
+
+  border-color: rgba(110, 207, 246, 0.35);
+
+  background: rgba(10, 20, 30, 0.85);
+
+  box-shadow: 0 0 20px rgba(50, 180, 255, 0.08);
+}
+
+.future-marker-one:hover {
+  transform: translate(4px, -4px);
+}
+
+.future-marker-two:hover {
+  transform: translate(-4px, 4px);
+}
+
+.future-marker-three:hover {
+  transform: translate(4px, -50%);
+}
+
+.future-visual:has(.future-marker:hover) .future-orbit {
+  border-color: rgba(110, 207, 246, 0.2);
+
+  box-shadow:
+    0 0 70px rgba(50, 180, 255, 0.06),
+    inset 0 0 60px rgba(50, 180, 255, 0.035);
+}
+
+.future-marker-one {
+  top: 55px;
+  right: 65px;
+}
+
+.future-marker-two {
+  bottom: 55px;
+  left: 45px;
+}
+
+.future-marker-three {
+  top: 50%;
+  right: -8px;
+
+  transform: translateY(-50%);
+
+  color: #8bdcff;
+  border-color: rgba(110, 207, 246, 0.2);
+}
+
+/* Status label */
+
+.future-status {
+  position: absolute;
+
+  bottom: 28px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
+
+.future-status-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #6ecff6;
+
+  box-shadow: 0 0 10px rgba(110, 207, 246, 0.7);
+
+  animation: futureStatusPulse 2s ease-in-out infinite;
+}
+
+/* Animations */
+
+@keyframes futureOrbitOne {
+  0%,
+  100% {
+    transform: rotate(-18deg) scale(1);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: rotate(-8deg) scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes futureOrbitTwo {
+  0%,
+  100% {
+    transform: rotate(48deg) scale(1);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: rotate(58deg) scale(0.96);
+    opacity: 0.8;
+  }
+}
+
+@keyframes futureOrbitThree {
+  0%,
+  100% {
+    transform: rotate(-35deg);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: rotate(-25deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes futureCorePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes futureStatusPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Tablet / mobile */
 
 @media (max-width: 900px) {
   .future {
@@ -133,23 +370,55 @@
   .future-content {
     width: 100%;
   }
- 
-  .future-earth {
-  right: 50%;
-  top: auto;
-  bottom: -80px;
 
-  width: 320px;
-  height: 320px;
+  .future-visual {
+    right: 50%;
+    top: auto;
+    bottom: -70px;
 
-  transform: translateX(50%);
-}
+    width: 360px;
+    height: 360px;
 
-.future-earth .earth-canvas {
-  width: 320px;
-  height: 320px;
-}
-  
+    transform: translateX(50%);
+  }
+
+  .future-orbit-one {
+    width: 280px;
+    height: 280px;
+  }
+
+  .future-orbit-two {
+    width: 220px;
+    height: 320px;
+  }
+
+  .future-orbit-three {
+    width: 320px;
+    height: 190px;
+  }
+
+  .future-core {
+    width: 75px;
+    height: 75px;
+  }
+
+  .future-marker-one {
+    top: 35px;
+    right: 35px;
+  }
+
+  .future-marker-two {
+    bottom: 35px;
+    left: 20px;
+  }
+
+  .future-marker-three {
+    right: -12px;
+  }
+
+  .future-status {
+    bottom: 18px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -166,15 +435,54 @@
     font-size: 14px;
   }
 
-  .future-earth {
-  width: 280px;
-  height: 280px;
+  .future-visual {
+    width: 300px;
+    height: 300px;
 
-  bottom: -50px;
-}
+    bottom: -45px;
+  }
 
-.future-earth .earth-canvas {
-  width: 280px;
-  height: 280px;
-}
+  .future-orbit-one {
+    width: 240px;
+    height: 240px;
+  }
+
+  .future-orbit-two {
+    width: 190px;
+    height: 270px;
+  }
+
+  .future-orbit-three {
+    width: 270px;
+    height: 160px;
+  }
+
+  .future-core {
+    width: 65px;
+    height: 65px;
+  }
+
+  .future-marker {
+    font-size: 8px;
+    padding: 5px 8px;
+  }
+
+  .future-marker-one {
+    top: 28px;
+    right: 18px;
+  }
+
+  .future-marker-two {
+    bottom: 28px;
+    left: 5px;
+  }
+
+  .future-marker-three {
+    right: -20px;
+  }
+
+  .future-status {
+    bottom: 10px;
+    font-size: 7px;
+  }
 }

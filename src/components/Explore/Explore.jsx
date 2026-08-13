@@ -23,8 +23,15 @@ function Explore() {
         </div>
 
         <div className="explore-center">
-           <EarthModel />
-        </div>
+            <div className="explore-orbit explore-orbit-one"></div>
+            <div className="explore-orbit explore-orbit-two"></div>
+
+            <div className="explore-earth-label">
+            <span>DRAG TO EXPLORE</span>
+          </div>
+
+            <EarthModel />
+           </div>
 
         <div className="explore-card">
           <span>02</span>

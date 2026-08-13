@@ -65,7 +65,8 @@
   transition:
     transform 0.3s ease,
     background 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .explore-card:hover {
@@ -73,6 +74,55 @@
 
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(110, 207, 246, 0.3);
+
+  box-shadow: 0 0 30px rgba(50, 180, 255, 0.06);
+}
+
+.explore-card::before {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #6ecff6;
+
+  box-shadow: 0 0 10px rgba(110, 207, 246, 0.5);
+
+  opacity: 0.35;
+
+  transition: opacity 0.3s ease;
+}
+
+.explore-card::after {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+
+  width: 30px;
+  height: 1px;
+
+  background: rgba(110, 207, 246, 0.18);
+
+  opacity: 0.35;
+
+  transition:
+    opacity 0.3s ease,
+    width 0.3s ease;
+}
+
+.explore-card:hover::before,
+.explore-card:hover::after {
+  opacity: 0.8;
+}
+
+.explore-card:hover::after {
+  width: 38px;
 }
 
 .explore-card span {
@@ -120,15 +170,31 @@
   grid-column: 1;
   grid-row: 2;
 }
+.explore-card:nth-child(1)::before,
+.explore-card:nth-child(4)::before {
+  right: -33px;
+}
 
+.explore-card:nth-child(1)::after,
+.explore-card:nth-child(4)::after {
+  right: -30px;
+}
+
+.explore-card:nth-child(3)::before {
+  left: -33px;
+}
+
+.explore-card:nth-child(3)::after {
+  left: -30px;
+}
 .explore-center {
   position: absolute;
 
   left: 50%;
   top: 50%;
 
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
 
   transform: translate(-50%, -50%);
 
@@ -140,8 +206,93 @@
 }
 
 .explore-center .earth-canvas {
+  position: relative;
+  z-index: 3;
+
   width: 320px;
   height: 320px;
+}
+
+.explore-orbit {
+  position: absolute;
+
+  border: 1px solid rgba(110, 207, 246, 0.14);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.explore-orbit-one {
+  width: 350px;
+  height: 350px;
+
+  transform: rotate(-18deg);
+
+  animation: exploreOrbitOne 8s ease-in-out infinite;
+}
+
+.explore-orbit-two {
+  width: 300px;
+  height: 300px;
+
+  transform: rotate(32deg);
+
+  border-color: rgba(139, 220, 255, 0.08);
+
+  animation: exploreOrbitTwo 10s ease-in-out infinite;
+}
+
+.explore-earth-label {
+  position: absolute;
+
+  bottom: -8px;
+  left: 50%;
+
+  z-index: 4;
+
+  transform: translateX(-50%);
+
+  padding: 7px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  background: rgba(5, 7, 13, 0.7);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  white-space: nowrap;
+}
+
+.explore-earth-label span {
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+@keyframes exploreOrbitOne {
+  0%,
+  100% {
+    transform: rotate(-18deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-10deg) scale(1.04);
+  }
+}
+
+@keyframes exploreOrbitTwo {
+  0%,
+  100% {
+    transform: rotate(32deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(40deg) scale(0.96);
+  }
 }
 
 @media (max-width: 900px) {
@@ -161,30 +312,33 @@
   }
 
   .explore-center {
-    position: relative;
+  position: relative;
 
-    left: auto;
-    top: auto;
+  left: auto;
+  top: auto;
 
-    order: -1;
+  order: -1;
 
-    width: 300px;
-    height: 300px;
+  width: 320px;
+  height: 320px;
 
-    transform: none;
+  transform: none;
 
-    margin: 0 auto 30px;
-  }
+  margin: 0 auto 40px;
+}
 
   .explore-center .earth-canvas {
-    width: 300px;
-    height: 300px;
-  }
+  width: 280px;
+  height: 280px;
+}
 
   .explore-card {
     width: 100%;
   }
-
+.explore-card::before,
+.explore-card::after {
+  display: none;
+}
   .explore-card:nth-child(1),
   .explore-card:nth-child(3),
   .explore-card:nth-child(4) {
@@ -204,12 +358,12 @@
   }
 
   .explore-center {
-    width: 250px;
-    height: 250px;
-  }
+  width: 270px;
+  height: 270px;
+}
 
   .explore-center .earth-canvas {
-    width: 250px;
-    height: 250px;
-  }
+  width: 230px;
+  height: 230px;
+}
 }

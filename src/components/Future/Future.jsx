@@ -1,5 +1,4 @@
 import './Future.css'
-import EarthModel from '../Hero/EarthModel'
 
 function Future() {
   return (
@@ -23,8 +22,29 @@ function Future() {
         </a>
       </div>
 
-      <div className="future-earth">
-        <EarthModel />
+      <div className="future-visual">
+        <div className="future-orbit future-orbit-one"></div>
+        <div className="future-orbit future-orbit-two"></div>
+        <div className="future-orbit future-orbit-three"></div>
+
+        <div className="future-core"></div>
+
+        <div className="future-marker future-marker-one">
+          <span>2030</span>
+        </div>
+
+        <div className="future-marker future-marker-two">
+          <span>2050</span>
+        </div>
+
+        <div className="future-marker future-marker-three">
+          <span>BEYOND</span>
+        </div>
+
+        <div className="future-status">
+          <span className="future-status-dot"></span>
+          THE NEXT CHAPTER
+        </div>
       </div>
     </section>
   )

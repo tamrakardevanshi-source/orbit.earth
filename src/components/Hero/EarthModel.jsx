@@ -29,7 +29,7 @@ function Earth() {
 function EarthModel() {
   return (
     <div className="earth-canvas">
-      <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
+      <Canvas camera={{ position: [0, 0, 6], fov: 45 }}  dpr={[1, 1.5]}>
         <ambientLight intensity={1.5} />
         <directionalLight position={[5, 3, 5]} intensity={2} />
 

@@ -13,7 +13,7 @@ function App() {
        <Explore />
        <About />
        <Future/>
-        <Footer />
+       <Footer />
     </main>
   )
 }

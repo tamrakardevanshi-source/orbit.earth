@@ -295,15 +295,16 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .explore {
-    padding: 100px 24px;
-  }
+  min-height: auto;
+  padding: 110px 24px 100px;
+}
 
   .explore-content {
     min-height: auto;
 
-    margin-top: 60px;
+    margin-top: 50px;
 
     display: flex;
     flex-direction: column;
@@ -319,8 +320,8 @@
 
   order: -1;
 
-  width: 320px;
-  height: 320px;
+  width: 300px;
+  height: 300px;
 
   transform: none;
 
@@ -328,8 +329,8 @@
 }
 
   .explore-center .earth-canvas {
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
 }
 
   .explore-card {
@@ -339,12 +340,7 @@
 .explore-card::after {
   display: none;
 }
-  .explore-card:nth-child(1),
-  .explore-card:nth-child(3),
-  .explore-card:nth-child(4) {
-    grid-column: auto;
-    grid-row: auto;
-  }
+  
 }
 
 @media (max-width: 600px) {

@@ -83,7 +83,6 @@
   background: #dff6ff;
 }
 
-/* FUTURE VISUAL */
 
 .future-visual {
   position: absolute;
@@ -103,7 +102,7 @@
   z-index: 1;
 }
 
-/* Orbital paths */
+
 
 .future-orbit {
   position: absolute;
@@ -149,7 +148,7 @@
   animation: futureOrbitThree 18s ease-in-out infinite;
 }
 
-/* Central future point */
+
 
 .future-core {
   position: relative;
@@ -174,7 +173,7 @@
   animation: futureCorePulse 4s ease-in-out infinite;
 }
 
-/* Timeline markers */
+
 
 .future-marker {
   position: absolute;
@@ -255,7 +254,6 @@
   border-color: rgba(110, 207, 246, 0.2);
 }
 
-/* Status label */
 
 .future-status {
   position: absolute;
@@ -291,7 +289,7 @@
   animation: futureStatusPulse 2s ease-in-out infinite;
 }
 
-/* Animations */
+
 
 @keyframes futureOrbitOne {
   0%,
@@ -356,31 +354,44 @@
   }
 }
 
-/* Tablet / mobile */
 
-@media (max-width: 900px) {
+
+@media (max-width: 1024px) {
   .future {
-    min-height: 100svh;
+  min-height: auto;
 
-    padding: 100px 24px;
+  padding: 110px 24px 100px;
 
-    align-items: flex-start;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
   .future-content {
     width: 100%;
+    max-width: 680px;
   }
 
   .future-visual {
-    right: 50%;
-    top: auto;
-    bottom: -70px;
+  position: relative;
 
-    width: 360px;
-    height: 360px;
+  right: auto;
+  top: auto;
+  bottom: auto;
 
-    transform: translateX(50%);
-  }
+  width: 360px;
+  height: 360px;
+
+  transform: none;
+
+  margin: 70px auto -40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+}
 
   .future-orbit-one {
     width: 280px;

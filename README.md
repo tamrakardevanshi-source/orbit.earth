@@ -42,10 +42,6 @@ The 3D asset is used as a central part of the website experience rather than bei
 
 The Earth 3D model was sourced from the Algoryx Community platform and integrated into this project as part of the interactive website experience.
 
-### 3D Asset Attribution
-
-The Earth 3D model was sourced from the Algoryx Community platform and integrated into this project as part of the interactive website experience.
-
 ## 🛠️ Tech Stack
 
 ### Frontend

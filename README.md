@@ -119,7 +119,7 @@ earth-experience/
 ### 1. Clone the repository
 
 ```bash
-https://github.com/tamrakardevanshi-source/orbit.earth
+git clone YOUR_GITHUB_REPOSITORY_URL
 ```
 
 ### 2. Navigate to the project
@@ -236,15 +236,39 @@ Provides navigation, project information, and closing content.
 
 ## 🔗 Links
 
-**Live Website:**
-YOUR_LIVE_WEBSITE_URL
+**Live Website:**  
+https://deluxe-starlight-57374d.netlify.app/
 
-**GitHub Repository:**
-YOUR_GITHUB_REPOSITORY_URL
+**GitHub Repository:**  
+https://github.com/tamrakardevanshi-source/orbit.earth
 
 ## 📸 Screenshots
 
-Screenshots of the final responsive website are included as part of the project submission.
+### 🖥️ Desktop Experience
+
+#### Hero
+
+![Earth Experience Hero](screenshots/Hero.png)
+
+#### Explore
+
+![Earth Experience Explore](screenshots/Explore.png)
+
+#### About
+
+![Earth Experience About](screenshots/About.png)
+
+#### Future
+
+![Earth Experience Future](screenshots/Future.png)
+
+#### Footer
+
+![Earth Experience Footer](screenshots/Footer.png)
+
+### 📱 Mobile Experience
+
+![Earth Experience Mobile](screenshots/Mobile.png)
 
 ## 📚 Learning Outcomes
 

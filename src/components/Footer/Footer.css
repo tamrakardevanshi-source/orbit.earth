@@ -24,11 +24,32 @@
 }
 
 .footer-brand p {
+  position: relative;
   margin: 14px 0 0;
 
   color: rgba(255, 255, 255, 0.4);
 
   font-size: 13px;
+  padding-left: 12px;
+}
+.footer-brand p::before {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #6ecff6;
+
+  box-shadow: 0 0 8px rgba(110, 207, 246, 0.6);
+
+  transform: translateY(-50%);
 }
 
 .footer-links {
@@ -37,17 +58,28 @@
 }
 
 .footer-links a {
+  position: relative;
+
   color: rgba(255, 255, 255, 0.55);
 
   text-decoration: none;
 
   font-size: 13px;
 
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .footer-links a:hover {
   color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer-links a:focus-visible,
+.footer-logo:focus-visible {
+  outline: 2px solid #6ecff6;
+  outline-offset: 4px;
 }
 
 .footer-bottom {

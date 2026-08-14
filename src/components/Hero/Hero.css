@@ -93,7 +93,7 @@
   align-items: center;
   justify-content: center;
 
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .earth-glow {
@@ -109,25 +109,7 @@
   filter: blur(80px);
 }
 
-.earth-placeholder {
-  position: relative;
 
-  width: 500px;
-  height: 500px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      rgba(100, 210, 255, 0.15),
-      transparent 45%
-    );
-
-  box-shadow:
-    0 0 80px rgba(50, 180, 255, 0.12),
-    inset 0 0 80px rgba(50, 180, 255, 0.05);
-}
 @media (max-width: 900px) {
   .hero {
     min-height: 100svh;

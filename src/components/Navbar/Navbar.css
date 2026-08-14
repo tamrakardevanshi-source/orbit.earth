@@ -71,7 +71,11 @@
   transform: translateY(-2px);
   background: #dff6ff;
 }
-
+.navbar a:focus-visible,
+.menu-toggle:focus-visible {
+  outline: 2px solid #6ecff6;
+  outline-offset: 4px;
+}
 .menu-toggle {
   display: none;
 
@@ -84,11 +88,20 @@
   border-radius: 50%;
 
   background: rgba(255, 255, 255, 0.05);
+  
 
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 4px;
+
+  cursor: pointer;
+
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(110, 207, 246, 0.25);
 }
 
 .menu-toggle span {

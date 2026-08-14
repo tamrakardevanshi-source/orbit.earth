@@ -10,15 +10,29 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <a href="/" className="navbar-logo">
+      <a href="#home" className="navbar-logo">
         EARTH
       </a>
 
-      <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
-        <a href="#home" onClick={closeMenu}>Home</a>
-        <a href="#explore" onClick={closeMenu}>Explore</a>
-        <a href="#about" onClick={closeMenu}>About</a>
-        <a href="#future" onClick={closeMenu}>Future</a>
+      <div
+        id="navbar-menu"
+        className={`navbar-links ${menuOpen ? 'active' : ''}`}
+      >
+        <a href="#home" onClick={closeMenu}>
+          Home
+        </a>
+
+        <a href="#explore" onClick={closeMenu}>
+          Explore
+        </a>
+
+        <a href="#about" onClick={closeMenu}>
+          About
+        </a>
+
+        <a href="#future" onClick={closeMenu}>
+          Future
+        </a>
       </div>
 
       <a href="#explore" className="navbar-button">
@@ -26,9 +40,12 @@ function Navbar() {
       </a>
 
       <button
+        type="button"
         className={`menu-toggle ${menuOpen ? 'active' : ''}`}
         onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle navigation menu"
+        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={menuOpen}
+        aria-controls="navbar-menu"
       >
         <span></span>
         <span></span>
